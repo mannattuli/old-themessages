@@ -1,0 +1,31 @@
+<div class="loggedin" style="float: left">
+    <% if !user_signed_in? %>
+        <div style="text-align:center;">
+            <span>Want to join?
+            <%= nav_link "Log in", user_session_path %>
+            or
+            <%= nav_link "sign up", new_user_registration_path %> in seconds.</span>
+    </div>
+    <% else %>
+        <%= link_to current_user.username, edit_user_registration_path, class: 'username' %>
+        <div class="online" title="online"></div>
+        <% if current_user.score == nil %>
+            (<span id="score" title="score">0</span>)
+        <% else %>
+            (<span id="score" title="score"><%= current_user.score %></span>)
+        <% end %>
+        <span class="separator">|</span>
+
+        <a href="/u/<%= current_user.id %>">your profile</a>
+
+        <span class="separator">|</span>
+
+        <a rel="nofollow" data-method="delete" href="/users/sign_out">log out</a>
+    <% end %>
+</div>
+
+<div class="top-bar">
+    <div class="news">
+        Add a bio and your twitter account to your <a href="/users/edit" style="color: blue">profile</a> for other people to check out!
+    </div>
+</div>

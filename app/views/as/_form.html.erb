@@ -1,0 +1,45 @@
+<%= form_with(model: a) do |form| %>
+  <% if a.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(a.errors.count, "error") %> prohibited this a from being saved:</h2>
+
+      <ul>
+        <% a.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table>
+  <tr>
+  <td class="field label">
+    <%= form.label :subject %>
+  </td>
+  <td class="field">
+    <%= form.text_field :subject %>
+  </td>
+  </tr>
+  <tr>
+  <td class="field label">
+    <%= form.label :body %>
+  </td>
+  <td class="field">
+    <%= form.text_field :body %>
+  </td>
+  </tr>
+  <tr>
+  <td class="field label">
+    <%= form.label :image %>
+  </td>
+  <td class="field">
+    <%= form.text_field :image %>
+  </td>
+  </tr>
+  <tr>
+  <td></td>
+  <td class="actions">
+    <%= form.submit %>
+  </td>
+  </tr>
+</table>
+<% end %>

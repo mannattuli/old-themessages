@@ -1,0 +1,72 @@
+<div style="text-align: center" class="user-prof">
+    <div class="user-h1">
+        <%= @user.username %>
+    </div>
+    <div>
+    <% if @user.score == nil %>
+        <strong>score: </strong><span class="user-head">nil</span>
+    <% else %>
+        <strong>score: </strong><span class="user-head"> <%= @user.score %></span>
+    <% end %>
+    <% if @user.badge != nil %>
+        <div>
+            <strong>badge: </strong><div class="<%= @user.badge %>-index-badge">
+              
+            </div>
+        </div>
+    <% else %>
+        <div>
+            <strong>badge: </strong>none
+        </div>
+    <% end %>
+    <% if @user.bio != nil && @user.bio != "" %>
+    <br />
+    <div class="padded-300 border">
+      <strong>Bio: </strong><div><%= @user.bio %></div>
+    </div>
+    <br />
+    <% end %>    
+    <div>
+        <span><strong>created: </strong><%= @user.created_at %></span>
+    </div>
+    </div>
+    <% if @user.spotify != nil %>
+      <i class="fa fa-twitter"></i>
+      <a href="https://twitter.com/<%= @user.spotify %>" style="color: blue" target="_blank">@<%= @user.spotify %></a>
+    <% end %>
+</div>
+
+<div class="padded-900">
+<h1>user posts</h1>
+<% @as = A.all %>
+<% @sorted = @as.order('created_at DESC').collect %>
+<% @sorted.each do |a| %>
+<% if a.username == @user.username %>
+<div id="post">
+    <div>
+      <a href="/void/<%= a.id %>" class="post-title"><%= a.subject %></a>
+    </div>
+    <div id="time">
+      created at <%= a.created_at %>
+      by <a href="/u/<%= a.user_id %>"><%= a.username %></a>
+    </div>
+    <div><%= a.body %></div>
+
+    <% if a.image.include? "imgur.com" %>
+    <div>
+      <a href="<%= a.image %>" target="_blank">
+        <img src="<%= a.image %>" style="width: 300px; height: 300px" alt="<%= a.image %>" />
+      </a>
+    </div>
+    <% end %>
+
+    <div>
+      <span><%= link_to 'show', a, class: "post-show", class: "post-show" %></span>
+      <% if user_signed_in? && current_user.id == a.user_id %>
+        | <span><%= link_to 'destroy', a, method: :delete, data: { confirm: 'Are you sure?' }, class: "post-show" %></span> 
+      <% end %>
+    </div>
+</div>
+<% end %>
+<% end %>
+</div>

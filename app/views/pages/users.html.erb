@@ -1,0 +1,22 @@
+<br /><br />
+<% @user = User.all %>
+<% @sorted = @user.order('created_at DESC').collect %>
+<main class="center">
+<% @sorted.each do |user| %>
+    <div class="user-list" style="font-weight: 700">
+        <span class="user-title" style="margin-bottom: 0px">
+            <%= user.username %>
+        </span>
+        <div style="margin-top: 0px">
+            <a href="/u/<%= user.id %>" class="path">
+                u/<%= user.username %>
+            </a>
+        </div>
+        <% if user.bio != nil && user.bio != '' %>
+            <div style="font-weight: 400" class="padded-300 border">
+                <%= user.bio %>
+            </div>
+        <% end %>
+    </div>
+<% end %>
+</main>

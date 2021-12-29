@@ -1,0 +1,26 @@
+<%
+def nav_link(link_text, link_path)
+  class_name = current_page?(link_path) ? 'current' : ''
+
+  content_tag(:span, :class => class_name) do
+    link_to link_text, link_path
+  end
+end
+%>
+<nav>
+  <div class="nav">
+    [<%= nav_link 'HOME', root_path %>]
+
+    <span class="separator">-</span>
+
+    [<%= nav_link 'void', as_path %>]
+
+    <span class="separator">-</span>
+
+    [<%= nav_link 'shop', shop_path %>]
+
+    <span class="separator">-</span>
+
+    [<%= nav_link 'USERS', users_path %>] 
+  </div>
+</nav>

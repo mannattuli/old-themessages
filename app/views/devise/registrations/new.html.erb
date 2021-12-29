@@ -1,0 +1,71 @@
+<div class="center">
+    <h1>[<span class="blue-color">sign up</span>]</h1>
+</div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<table>
+  <tr>
+  <td class="field">
+    <%= f.label :username %>
+  </td>
+  <td class="field">
+    <%= f.text_field :username, autofocus: true %>
+  </td>
+  </tr>
+  <tr>
+  <td class="field">
+    <%= f.label :email %>
+  </td>
+  <td class="field">
+    <%= f.email_field :email, autofocus: false, autocomplete: "email" %>
+  </td>
+  </tr>
+  <tr>
+  <td class="field">
+    <%= f.label :bio %>
+  </td>
+  <td class="field">
+    <%= f.text_field :bio, autofocus: false %>
+  </td>
+  </tr>
+  <tr>
+  <td class="field">
+    <%= f.label :twitter %>
+  </td>
+  <td class="field">
+    <%= f.text_field :spotify, autofocus: false %>
+  </td>
+  </tr>
+  <tr>
+  <td class="field">
+    <%= f.label :password %>
+  </td>
+  <td class="field">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </td>
+  </tr>
+  <tr>
+  <td class="field">
+    <%= f.label :password_confirmation %>
+  </td>
+  <td class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </td>
+  </tr>
+  <tr>
+  <td>
+  </td>
+  <td class="actions">
+    <%= f.submit "Sign up" %>
+  </td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+<% end %>
+<div class="center">
+  <h3 style="margin-top: 0px"><%= render "devise/shared/links" %></h3>
+</div>

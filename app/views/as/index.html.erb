@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<div class="padded-700">
+<h1 style="text-align: center; margin-bottom: 0px">/void/</h1>
+<div class="main-page-box" style="background-color: transparent; border: none; padding-top: 0px; margin-top: 0px">
+    <a href="/void/new">
+        <div class="main-new">
+            [<span>new post</span>]
+        </div>
+    </a>
+</div>
+<br />
+<% @as = A.all %>
+<% @sorted = @as.order('created_at DESC').collect %>
+<% @sorted.each do |a| %>
+<div id="post">
+    <div>
+      <a href="/void/<%= a.id %>" class="post-title"><%= a.subject %></a>
+    </div>
+    <div id="time">
+      created at <%= a.created_at %>
+      by 
+      <% if a.badge != nil %>
+        <div class="<%= a.badge %>-index-badge"></div>
+      <% end %>
+      <a href="/u/<%= a.user_id %>" style="color: blue"><%= a.username %></a>
+    </div>
+
+    <div style="color: black"><%= a.body %></div>
+
+    <% if a.image.include? "imgur.com" %>
+    <div>
+      <a href="<%= a.image %>" target="_blank">
+        <img src="<%= a.image %>" style="width: 300px; height: 300px" alt="<%= a.image %>" />
+      </a>
+    </div>
+    <% end %>
+
+    <div>
+      <span><%= link_to 'show', a, class: "post-show" %></span>
+      <% if user_signed_in? && current_user.id == a.user_id %>
+        <span><%= link_to 'destroy', a, method: :delete, data: { confirm: 'Are you sure?' }, class: "post-show" %></span>
+      <% end %>
+    </div>
+</div>
+<% end %>
+</div>

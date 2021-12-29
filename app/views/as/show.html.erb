@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<div style="text-align: center">
+  <div class="show-box padded-300">
+    <div class="username-show">
+      <a href="/u/<%= @a.user_id %>"><%= @a.username %></a>
+    </div>
+    <span class="time">
+      <%= @a.created_at %>
+    </span>
+    <div class="subject-show">
+      <strong><%= @a.subject %></strong>
+    </div>
+    <div class="body-show">
+      <%= @a.body %>
+    </div>
+    <% if @a.image.include? "imgur.com" %>
+    <div>
+      <a href="<%= @a.image %>" target="_blank">
+        <img src="<%= @a.image %>" style="width: 300px; height: 300px" alt="<%= @a.image %>" />
+      </a>
+    </div>
+    <% end %>
+  <% if user_signed_in? && current_user.id == @a.user_id %>
+    <span><%= link_to 'Destroy', @a, method: :delete, data: { confirm: 'Are you sure?' } , class: 'post-show-2' %></span> |
+  <% end %>
+  <%= link_to 'Back', as_path  , class: 'post-show-2' %>
+  </div>
+
+</div>
+<br />
+
+<div>
+  <h3 style="text-align: center; margin-bottom: 2px">[<span class="blue-color">new comment</span>]</h3>
+  <%= render partial: 'comments/form', locals: { comment: @comment } %>
+</div>
+
+<div style="text-align: center">
+  <h3>Comments</h3>
+  <div class="padded-700">
+  <% @comments.each do |comment| %>
+    <div class="border" style="margin-bottom: 10px">
+      <strong>User: </strong><span class="post-show"><a href="/u/<%= comment.user_id %>"><%= comment.username %></a></span>
+      <div><strong>Comment: </strong><%= comment.comment %></div>
+
+      <% if user_signed_in? && current_user.id == comment.user_id %>
+      <p style="margin: 0px" class="post-show"><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</div>
