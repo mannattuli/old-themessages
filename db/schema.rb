@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_12_28_123307) do
 
-  create_table "alls", force: :cascade do |t|
-    t.string "subject"
-    t.string "body"
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "as", force: :cascade do |t|
     t.string "subject"
     t.string "body"
@@ -39,15 +31,6 @@ ActiveRecord::Schema.define(version: 2021_12_28_123307) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "a_id"
     t.integer "user_id"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer "a_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["a_id"], name: "index_likes_on_a_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,6 +53,4 @@ ActiveRecord::Schema.define(version: 2021_12_28_123307) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "likes", "as"
-  add_foreign_key "likes", "users"
 end
