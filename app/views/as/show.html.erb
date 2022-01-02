@@ -33,12 +33,15 @@
   <%= render partial: 'comments/form', locals: { comment: @comment } %>
 </div>
 
+<% @comm = Comment.all %>
+<% @sortedC = @comm.order('created_at DESC').collect %>
+
 <div style="text-align: center">
   <h3>Comments</h3>
   <div class="padded-700">
-  <% @comments.each do |comment| %>
+  <% @sortedC.each do |comment| %>
     <div class="border" style="margin-bottom: 10px">
-      <strong>User: </strong><span class="post-show"><a href="/u/<%= comment.user_id %>"><%= comment.username %></a></span>
+      <strong>User: </strong><span class="post-show"><a href="/u/<%= comment.user_id %>"><%= comment.username %></a></span><span><%= comment.created_at %></span>
       <div><strong>Comment: </strong><%= comment.comment %></div>
 
       <% if user_signed_in? && current_user.admin %>
