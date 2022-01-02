@@ -61,7 +61,7 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
-    if user_signed_in? && current_user.id == @comment.user_id
+    if user_signed_in? && current_user.id == @comment.user_id || current_user.admin
       @comment.destroy
 
       respond_to do |format|

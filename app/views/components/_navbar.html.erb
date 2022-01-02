@@ -13,7 +13,11 @@ end
 
     <span class="separator">-</span>
 
-    [<%= nav_link 'void', as_path %>]
+    [<%= nav_link 'void', void_path %>]
+
+    <span class="separator">-</span>
+
+    [<%= nav_link 'boards', boards_path %>]
 
     <span class="separator">-</span>
 
@@ -22,5 +26,9 @@ end
     <span class="separator">-</span>
 
     [<%= nav_link 'USERS', users_path %>] 
+
+    <span class="separator">-</span>
+
+    [<a href="javascript:void(0)" id="themeBtn">light</a>]
   </div>
 </nav>

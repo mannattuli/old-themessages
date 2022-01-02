@@ -1,10 +1,5 @@
 <div class="main-page-box">
     <h1>[<span class="blue-color">themessages</span>]</h1>
-    <a href="/void/new">
-        <div class="main-new">
-            [<span>new post</span>]
-        </div>
-    </a>
 </div>
 <div id="main-page-box">
     <h3 style="margin-bottom: 0px">About</h3>
@@ -15,12 +10,18 @@
 <div id="main-page-box">
     <h3 style="margin-bottom: 0px">Image</h3>
     <p style="margin-top: 0px">
-        To upload an image you have to enter an imgur link in the image section of <a href="/void/new">new post</a> with extensions .jpeg, .png, .jpg, .gif at the end and the server will automatically make it into an img tag.
+        To upload an image you have to enter an imgur link in the image section of <a href="/boards">new post</a> with extensions .jpeg, .png, .jpg, .gif at the end and the server will automatically make it into an img tag.
     </p>
 </div>
-<div id="main-page-box">
-    <h3 style="margin-bottom: 0px">Shop</h3>
-    <p style="margin-top: 0px">
-        Everytime you post a message in the thread you gain some score! Score can be used to buy badges from the <a href="/shop">shop</a>. 
-    </p>
+<h2 class="center">[<span class="blue-color">Boards</span>]</h2>
+<% @boards = Board.all %>
+<div class="center index-board">
+  <% @boards.each do |board| %>
+    <ul>
+      <li><a href="/boards/<%= board.id %>">/<%= board.board_short_name %>/ - <%= board.board_desc %></a></li>
+    </ul>
+  <% end %>
+<% if user_signed_in? && current_user.admin %>
+  <%= link_to 'New Board', new_board_path %>
+<% end %>
 </div>

@@ -1,5 +1,6 @@
 class A < ApplicationRecord
     belongs_to :user
+    belongs_to :board
     has_many :comments
     validates :body, :subject, presence: true
     validates :body, length: { maximum: 500 }

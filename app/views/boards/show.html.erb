@@ -1,12 +1,17 @@
-<p id="notice"><%= notice %></p>
 <div class="padded-700">
-<h1 style="text-align: center; margin-bottom: 0px">/<span class="blue-color">void</span>/</h1>
+
+<h1 style="text-align: center; margin-bottom: 0px">/<span class="blue-color"><%= @board.board_short_name %></span>/ - <span class="blue-color"><%= @board.board_desc %></span></h1>
 <div class="main-page-box" style="background-color: transparent; border: none; padding-top: 0px; margin-top: 0px">
 </div>
+<br />
+<br />
+<%= render 'as/form', a: @a %>
 <br />
 <% @as = A.all %>
 <% @sorted = @as.order('created_at DESC').collect %>
 <% @sorted.each do |a| %>
+<% if a.board_id == @board.id %>
+
 <div id="post">
     <div>
       <a href="/void/<%= a.id %>" class="post-title"><%= a.subject %></a>
@@ -32,10 +37,11 @@
 
     <div>
       <span><%= link_to 'show', a, class: "post-show" %></span>
-      <% if user_signed_in? && current_user.id == a.user_id ||user_signed_in? && current_user.admin %>
+      <% if user_signed_in? && current_user.id == a.user_id || user_signed_in? && current_user.admin %>
         <span><%= link_to 'destroy', a, method: :delete, data: { confirm: 'Are you sure?' }, class: "post-show" %></span>
       <% end %>
     </div>
 </div>
+<% end %>
 <% end %>
 </div>

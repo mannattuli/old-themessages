@@ -163,10 +163,19 @@ nav .separator {
 .body {
   margin-left: 8px;
 }
+.text {
+  color: black;
+}
+.nerd-index-badge {
+  display: inline-block;
+}
 .nerd-index-badge::after {
   content: "NERD";
   display: inline-block;
   font-weight: 700;
+}
+.epic-index-badge {
+  display: inline-block;
 }
 .epic-index-badge::after {
   display: inline-block;
@@ -333,4 +342,90 @@ input:active {
   font-weight: 800;
   display: inline;
   padding-right: 5px;
+}
+.index-board ul {
+  list-style: none;
+  padding: 0px;
+}
+/*----------Dark------------*/
+.dark {
+  background-color: #121212;
+  color: #ccc;
+}
+.dark #main-page-box {
+  text-align: center;
+  margin-top: 10px;
+  /* width: 100px; */
+  margin-left: auto;
+  text-align: center;
+  background-color: #202020;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-right: auto;
+  /* height: 150px; */
+}
+.dark .main-page-box {
+  margin-top: 10px;
+  /* width: 100px; */
+  margin-left: auto;
+  text-align: center;
+  background-color: #000000;
+  border: 1px solid grey;
+  padding: 10px;
+  margin-right: auto;
+  /* height: 150px; */
+}
+.dark .user-prof {
+  padding: 10px;
+  background-color: #202022;
+  margin-top: 20px;
+  border: 1px solid grey;
+}
+.dark .border {
+  padding: 2px 5px;
+  background-color: #000000;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+.dark nav {
+  padding: 1px 0px;
+  font-size: 11px;
+  width: 100%;
+  background-color: #000000;
+  height: 18px;
+  border-bottom: 1px solid gray;
+}
+.dark .top-bar {
+  background-color: #cecece;
+  text-align: center;
+  color: #000;
+  /* background-color: #eff7ff; */
+  padding: 4px;
+  line-height: 12px;
+  /* width: fit-content; */
+  border-bottom: 1px solid #b4b4b4;
+}
+.dark .text {
+  color: rgb(255, 255, 255);
+}
+.dark a {
+  color: rgb(132, 190, 190);
+}
+.dark .loggedin {
+  text-align: center;
+  background-color: #000000;
+  padding: 4px;
+  line-height: 12px;
+  width: fit-content;
+  border-bottom: 1px solid grey;
+  border-right: 1px solid grey;
+  border-radius: 0px 0px 7px 0px;
+}
+.dark .blue-color {
+  color: rgb(71, 236, 236);
+}
+.dark .show-box {
+  border: 1px solid #afafaf;
+  padding: 7px;
+  background-color: rgb(0, 0, 0);
 }

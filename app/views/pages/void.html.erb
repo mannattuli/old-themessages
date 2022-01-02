@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
-<div class="padded-700">
-<h1 style="text-align: center; margin-bottom: 0px">/<span class="blue-color">void</span>/</h1>
+<div class="main-page-box">
+    <h1>/<span class="blue-color">void</span>/</h1>
+</div>
 <div class="main-page-box" style="background-color: transparent; border: none; padding-top: 0px; margin-top: 0px">
 </div>
 <br />
+<div class="padded-700">
 <% @as = A.all %>
 <% @sorted = @as.order('created_at DESC').collect %>
 <% @sorted.each do |a| %>
@@ -32,10 +33,11 @@
 
     <div>
       <span><%= link_to 'show', a, class: "post-show" %></span>
-      <% if user_signed_in? && current_user.id == a.user_id ||user_signed_in? && current_user.admin %>
+      <% if user_signed_in? && current_user.id == a.user_id || user_signed_in? && current_user.admin %>
         <span><%= link_to 'destroy', a, method: :delete, data: { confirm: 'Are you sure?' }, class: "post-show" %></span>
       <% end %>
     </div>
 </div>
 <% end %>
+</div>
 </div>

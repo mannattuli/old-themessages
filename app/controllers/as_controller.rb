@@ -48,7 +48,7 @@ class AsController < ApplicationController
 
   # PATCH/PUT /as/1 or /as/1.json
   def update
-    if user_signed_in? && current_user.id == @a.user_id
+    if user_signed_in? && current_user.id == @a.user_id || user_signed_in? && current_user.admin
       respond_to do |format|
         if @a.update(a_params)
           format.html { redirect_to a_url(@a), notice: "A was successfully updated." }
@@ -63,7 +63,7 @@ class AsController < ApplicationController
 
   # DELETE /as/1 or /as/1.json
   def destroy
-    if user_signed_in? && current_user.id == @a.user_id
+    if user_signed_in? && current_user.id == @a.user_id ||user_signed_in? && current_user.admin
       @a.destroy
 
       respond_to do |format|
@@ -81,6 +81,6 @@ class AsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def a_params
-      params.require(:a).permit(:subject, :body, :image)
+      params.require(:a).permit(:subject, :body, :image, :board_id)
     end
 end
