@@ -1,5 +1,8 @@
+<% if user_signed_in? && current_user.id == 1 %>
+
 <h1>New Board</h1>
 
 <%= render 'form', board: @board %>
 
 <%= link_to 'Back', boards_path %>
+<% end %>

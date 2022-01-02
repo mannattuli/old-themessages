@@ -14,7 +14,7 @@ class BoardsController < ApplicationController
 
   # GET /boards/new
   def new
-    if user_signed_in? && current_user.admin
+    if user_signed_in? && current_user.id == 1
       @board = Board.new
     end
   end
@@ -25,7 +25,7 @@ class BoardsController < ApplicationController
 
   # POST /boards or /boards.json
   def create
-    if user_signed_in? && current_user.admin
+    if user_signed_in? && current_user.id == 1
     @board = Board.new(board_params)
 
     respond_to do |format|
@@ -42,7 +42,7 @@ class BoardsController < ApplicationController
 
   # PATCH/PUT /boards/1 or /boards/1.json
   def update
-    if user_signed_in? && current_user.admin
+    if user_signed_in? && current_user.id == 1
         respond_to do |format|
         if @board.update(board_params)
           format.html { redirect_to board_url(@board), notice: "Board was successfully updated." }
@@ -57,7 +57,7 @@ class BoardsController < ApplicationController
 
   # DELETE /boards/1 or /boards/1.json
   def destroy
-    if user_signed_in? && current_user.admin
+    if user_signed_in? && current_user.id == 1
       @board.destroy
 
       respond_to do |format|

@@ -21,7 +21,7 @@
       <li><a href="/boards/<%= board.id %>">/<%= board.board_short_name %>/ - <%= board.board_desc %></a></li>
     </ul>
   <% end %>
-<% if user_signed_in? && current_user.admin %>
+<% if user_signed_in? && current_user.id == 1 %>
   <%= link_to 'New Board', new_board_path %>
 <% end %>
 </div>
