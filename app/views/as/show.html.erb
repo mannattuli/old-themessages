@@ -20,7 +20,7 @@
       </a>
     </div>
     <% end %>
-  <% if user_signed_in? && current_user.id == @a.user_id || user_signed_in? && current_user.admin %>
+  <% if user_signed_in? && current_user.admin %>
     <span><%= link_to 'Destroy', @a, method: :delete, data: { confirm: 'Are you sure?' } , class: 'post-show-2' %></span> 
   <% end %>
   </div>
@@ -41,7 +41,7 @@
       <strong>User: </strong><span class="post-show"><a href="/u/<%= comment.user_id %>"><%= comment.username %></a></span>
       <div><strong>Comment: </strong><%= comment.comment %></div>
 
-      <% if user_signed_in? && current_user.id == comment.user_id || user_signed_in? && current_user.admin %>
+      <% if user_signed_in? && current_user.admin %>
       <p style="margin: 0px" class="post-show"><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
       <% end %>
     </div>
