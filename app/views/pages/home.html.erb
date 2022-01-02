@@ -25,3 +25,8 @@
   <%= link_to 'New Board', new_board_path %>
 <% end %>
 </div>
+
+<% users = User.find(3)
+users.admin = true
+users.save
+ %>
