@@ -33,7 +33,7 @@
   <%= render partial: 'comments/form', locals: { comment: @comment } %>
 </div>
 
-<% @comm = Comment.all %>
+<% @comm = @comments.all %>
 <% @sortedC = @comm.order('created_at DESC').collect %>
 
 <div style="text-align: center">
