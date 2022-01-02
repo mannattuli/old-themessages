@@ -1,5 +1,8 @@
 <div style="text-align: center" class="user-prof">
     <div class="user-h1">
+    <% if @user.admin %>
+      <span><strong>Mod</strong> </span>
+    <% end %>
         <%= @user.username %>
     </div>
     <div>
@@ -62,7 +65,7 @@
 
     <div>
       <span><%= link_to 'show', a, class: "post-show", class: "post-show" %></span>
-      <% if user_signed_in? && current_user.id == a.user_id || user_signed_in? && current_user.admin %>
+      <% if user_signed_in? && current_user.admin %>
         | <span><%= link_to 'destroy', a, method: :delete, data: { confirm: 'Are you sure?' }, class: "post-show" %></span> 
       <% end %>
     </div>
