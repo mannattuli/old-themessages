@@ -429,3 +429,6 @@ input:active {
   padding: 7px;
   background-color: rgb(0, 0, 0);
 }
+.dark table {
+  color: black;
+}
