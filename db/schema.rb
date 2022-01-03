@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2022_01_03_062711) do
     t.integer "user_id"
     t.string "username"
     t.string "badge"
-    t.integer "board"
     t.integer "board_id"
     t.index ["user_id"], name: "index_as_on_user_id"
   end
@@ -57,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_01_03_062711) do
     t.string "badge"
     t.string "bio"
     t.string "spotify"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["user_id"], name: "index_users_on_user_id"
