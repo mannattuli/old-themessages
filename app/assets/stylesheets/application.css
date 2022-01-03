@@ -15,11 +15,11 @@ a:hover {
   text-align: center;
 }
 nav {
-  padding: 1px 0px;
+  padding: 3px;
   font-size: 11px;
   width: 100%;
   background-color: #f0f0f0;
-  height: 18px;
+  height: fit-content;
   border-bottom: 1px solid gray;
 }
 nav a {
@@ -400,11 +400,11 @@ input:active {
   border-radius: 7px;
 }
 .dark nav {
-  padding: 1px 0px;
+  padding: 3px;
   font-size: 11px;
   width: 100%;
   background-color: #000000;
-  height: 18px;
+  height: fit-content;
   border-bottom: 1px solid gray;
 }
 .dark .top-bar {

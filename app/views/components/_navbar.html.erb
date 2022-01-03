@@ -30,5 +30,16 @@ end
     <span class="separator">-</span>
 
     [<a href="javascript:void(0)" id="themeBtn">light</a>]
+
+    <span class="separator">|</span>
+
+    <% @boards = Board.all %>
+    <div>
+    <% @boards.each do |board| %>
+    [
+      / <a href="/boards/<%= board.id %>" style="text-transform: lowercase"><%= board.board_short_name %></a>
+    ]
+    <% end %>
+    </div>
   </div>
 </nav>
