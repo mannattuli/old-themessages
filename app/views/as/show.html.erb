@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div style="text-align: center">
   <div class="show-box padded-300">
     <div class="username-show">
@@ -41,8 +40,16 @@
   <div class="padded-700">
   <% @sortedC.each do |comment| %>
     <div class="border" style="margin-bottom: 10px">
-      <strong>User: </strong><span class="post-show"><a href="/u/<%= comment.user_id %>" style="margin-right: 3px"><%= comment.username %></a></span><span><%= comment.created_at %></span>
-      <div><strong>Comment: </strong><%= comment.comment %></div>
+      <div class="<%= comment.badge %>-index-badge"></div>
+      <span class="post-show"><a href="/u/<%= comment.user_id %>" style="margin-right: 3px">
+      
+      <%= comment.username %>
+      
+      </a></span>
+
+      <div class="time"><%= comment.created_at %></div>
+
+      <div><%= comment.comment %></div>
 
       <% if user_signed_in? && current_user.admin %>
       <p style="margin: 0px" class="post-show"><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>

@@ -438,3 +438,7 @@ input:active {
 .dark table {
   color: black;
 }
+ul {
+  padding: none;
+  list-style: none;
+}

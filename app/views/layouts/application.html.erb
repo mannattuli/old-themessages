@@ -17,6 +17,8 @@
   <body>
     <%= render "components/navbar" %>
     <%= render "components/loggedin" %>
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

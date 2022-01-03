@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @user = current_user
-    @comment = @user.comments.create(comment_params.merge(username: current_user.username))
+    @comment = @user.comments.create(comment_params.merge(username: current_user.username, badge: current_user.badge))
     # @comment = Comment.new(comment_params)
 
     respond_to do |format|

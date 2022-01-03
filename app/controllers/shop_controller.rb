@@ -1,6 +1,6 @@
 class ShopController < ApplicationController
   def yellow
-    if current_user.score != nil && current_user.score > 120
+    if current_user.score != nil && current_user.score >= 120
       if current_user.badge != 'yellow'
         current_user.update_attribute(:score, current_user.score - 120)
         current_user.update_attribute(:badge, "yellow")
@@ -15,7 +15,7 @@ class ShopController < ApplicationController
   end
 
   def blue
-    if current_user.score != nil && current_user.score > 150
+    if current_user.score != nil && current_user.score >= 150
       if current_user.badge != 'blue'
         current_user.update_attribute(:score, current_user.score - 150)
         current_user.update_attribute(:badge, "blue")
@@ -30,7 +30,7 @@ class ShopController < ApplicationController
   end
 
   def epic
-    if current_user.score != nil && current_user.score > 250
+    if current_user.score != nil && current_user.score >= 250
       if current_user.badge != 'epic'
         current_user.update_attribute(:score, current_user.score - 250)
         current_user.update_attribute(:badge, "epic")
@@ -45,7 +45,7 @@ class ShopController < ApplicationController
   end
 
   def nerd
-    if current_user.score != nil && current_user.score > 250
+    if current_user.score != nil && current_user.score >= 250
       if current_user.badge != 'nerd'
         current_user.update_attribute(:score, current_user.score - 250)
         current_user.update_attribute(:badge, "nerd")
