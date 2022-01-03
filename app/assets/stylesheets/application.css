@@ -168,7 +168,7 @@ nav .separator {
 }
 .nerd-index-badge {
   display: inline-block;
-  background: url(/assets/sparkle.gif);
+  background: url(sparkle.gif);
 }
 .nerd-index-badge::after {
   content: "NERD";
@@ -179,7 +179,7 @@ nav .separator {
 }
 .epic-index-badge {
   display: inline-block;
-  background: url(/assets/stars.gif);
+  background: url(stars.gif);
 }
 .epic-index-badge::after {
   display: inline-block;
