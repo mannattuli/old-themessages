@@ -1,24 +1,7 @@
-# README
+# [themessages]
+Themessages is a chatboard built to connect people. You can start a new thread to which people can reply to, or you can reply to an already existing thread.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains one of the earlier commits of themessages.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Website
+[https://themessages.herokuapp.com/](https://themessages.herokuapp.com/)
